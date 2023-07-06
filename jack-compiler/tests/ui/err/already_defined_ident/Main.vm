@@ -1,0 +1,6 @@
+function Main.foo 0
+push argument 0
+pop pointer 0
+// return 42
+push constant 42
+return

@@ -1,0 +1,27 @@
+function Main.main 1
+// let game = game
+push local 0
+pop local 0
+// game.run()
+push local 0
+call SquareGame.run 1
+// discard return value of the void function
+pop temp 0
+// game.dispose()
+push local 0
+call SquareGame.dispose 1
+// discard return value of the void function
+pop temp 0
+// return
+push constant 0
+return
+function Main.more 1
+// if (b) { (0 statements...) } else { (0 statements...) }
+push local 0
+if-goto LABEL_1
+goto LABEL_2
+label LABEL_1
+label LABEL_2
+// return
+push constant 0
+return

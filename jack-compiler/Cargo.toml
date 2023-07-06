@@ -1,0 +1,16 @@
+[package]
+name = "jack-compiler"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+rustc-hash = { workspace = true }
+
+jack-ast = { path = "../jack-ast" }
+hack-vm = { path = "../hack-vm" }
+miette = { version = "5.9.0", features = ["fancy"] }
+
+[dev-dependencies]
+similar-asserts = "1.4.2"

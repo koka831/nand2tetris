@@ -1,0 +1,11 @@
+class Main {
+    method int foo() {
+        return 42;
+    }
+
+    method String foo() {
+        return "42";
+    }
+
+    method void foo() {}
+}

@@ -1,0 +1,381 @@
+function Square.new 0
+push constant 3
+call Memory.alloc 1
+pop pointer 0
+// let x = Ax
+push argument 0
+pop this 0
+// let y = Ay
+push argument 1
+pop this 1
+// let size = Asize
+push argument 2
+pop this 2
+// draw()
+push pointer 0
+call Square.draw 1
+// discard return value of the void function
+pop temp 0
+// return this
+push pointer 0
+return
+function Square.dispose 0
+push argument 0
+pop pointer 0
+// Memory.deAlloc(this)
+push pointer 0
+call Memory.deAlloc 1
+// discard return value of the void function
+pop temp 0
+// return
+push constant 0
+return
+function Square.draw 0
+push argument 0
+pop pointer 0
+// Screen.setColor(true)
+push constant 1
+neg
+call Screen.setColor 1
+// discard return value of the void function
+pop temp 0
+// Screen.drawRectangle(x, y, x + size, y + size)
+push this 0
+push this 1
+push this 0
+push this 2
+add
+push this 1
+push this 2
+add
+call Screen.drawRectangle 4
+// discard return value of the void function
+pop temp 0
+// return
+push constant 0
+return
+function Square.erase 0
+push argument 0
+pop pointer 0
+// Screen.setColor(false)
+push constant 0
+call Screen.setColor 1
+// discard return value of the void function
+pop temp 0
+// Screen.drawRectangle(x, y, x + size, y + size)
+push this 0
+push this 1
+push this 0
+push this 2
+add
+push this 1
+push this 2
+add
+call Screen.drawRectangle 4
+// discard return value of the void function
+pop temp 0
+// return
+push constant 0
+return
+function Square.incSize 0
+push argument 0
+pop pointer 0
+// if (y + size < 254 & x + size < 510) { (3 statements...) }
+push this 1
+push this 2
+add
+push constant 254
+lt
+push this 0
+push this 2
+add
+push constant 510
+lt
+and
+if-goto LABEL_3
+goto LABEL_4
+label LABEL_3
+// erase()
+push pointer 0
+call Square.erase 1
+// discard return value of the void function
+pop temp 0
+// let size = size + 2
+push this 2
+push constant 2
+add
+pop this 2
+// draw()
+push pointer 0
+call Square.draw 1
+// discard return value of the void function
+pop temp 0
+label LABEL_4
+// return
+push constant 0
+return
+function Square.decSize 0
+push argument 0
+pop pointer 0
+// if (size > 2) { (3 statements...) }
+push this 2
+push constant 2
+gt
+if-goto LABEL_5
+goto LABEL_6
+label LABEL_5
+// erase()
+push pointer 0
+call Square.erase 1
+// discard return value of the void function
+pop temp 0
+// let size = size - 2
+push this 2
+push constant 2
+sub
+pop this 2
+// draw()
+push pointer 0
+call Square.draw 1
+// discard return value of the void function
+pop temp 0
+label LABEL_6
+// return
+push constant 0
+return
+function Square.moveUp 0
+push argument 0
+pop pointer 0
+// if (y > 1) { (5 statements...) }
+push this 1
+push constant 1
+gt
+if-goto LABEL_7
+goto LABEL_8
+label LABEL_7
+// Screen.setColor(false)
+push constant 0
+call Screen.setColor 1
+// discard return value of the void function
+pop temp 0
+// Screen.drawRectangle(x, y + size - 1, x + size, y + size)
+push this 0
+push this 1
+push this 2
+add
+push constant 1
+sub
+push this 0
+push this 2
+add
+push this 1
+push this 2
+add
+call Screen.drawRectangle 4
+// discard return value of the void function
+pop temp 0
+// let y = y - 2
+push this 1
+push constant 2
+sub
+pop this 1
+// Screen.setColor(true)
+push constant 1
+neg
+call Screen.setColor 1
+// discard return value of the void function
+pop temp 0
+// Screen.drawRectangle(x, y, x + size, y + 1)
+push this 0
+push this 1
+push this 0
+push this 2
+add
+push this 1
+push constant 1
+add
+call Screen.drawRectangle 4
+// discard return value of the void function
+pop temp 0
+label LABEL_8
+// return
+push constant 0
+return
+function Square.moveDown 0
+push argument 0
+pop pointer 0
+// if (y + size < 254) { (5 statements...) }
+push this 1
+push this 2
+add
+push constant 254
+lt
+if-goto LABEL_9
+goto LABEL_10
+label LABEL_9
+// Screen.setColor(false)
+push constant 0
+call Screen.setColor 1
+// discard return value of the void function
+pop temp 0
+// Screen.drawRectangle(x, y, x + size, y + 1)
+push this 0
+push this 1
+push this 0
+push this 2
+add
+push this 1
+push constant 1
+add
+call Screen.drawRectangle 4
+// discard return value of the void function
+pop temp 0
+// let y = y + 2
+push this 1
+push constant 2
+add
+pop this 1
+// Screen.setColor(true)
+push constant 1
+neg
+call Screen.setColor 1
+// discard return value of the void function
+pop temp 0
+// Screen.drawRectangle(x, y + size - 1, x + size, y + size)
+push this 0
+push this 1
+push this 2
+add
+push constant 1
+sub
+push this 0
+push this 2
+add
+push this 1
+push this 2
+add
+call Screen.drawRectangle 4
+// discard return value of the void function
+pop temp 0
+label LABEL_10
+// return
+push constant 0
+return
+function Square.moveLeft 0
+push argument 0
+pop pointer 0
+// if (x > 1) { (5 statements...) }
+push this 0
+push constant 1
+gt
+if-goto LABEL_11
+goto LABEL_12
+label LABEL_11
+// Screen.setColor(false)
+push constant 0
+call Screen.setColor 1
+// discard return value of the void function
+pop temp 0
+// Screen.drawRectangle(x + size - 1, y, x + size, y + size)
+push this 0
+push this 2
+add
+push constant 1
+sub
+push this 1
+push this 0
+push this 2
+add
+push this 1
+push this 2
+add
+call Screen.drawRectangle 4
+// discard return value of the void function
+pop temp 0
+// let x = x - 2
+push this 0
+push constant 2
+sub
+pop this 0
+// Screen.setColor(true)
+push constant 1
+neg
+call Screen.setColor 1
+// discard return value of the void function
+pop temp 0
+// Screen.drawRectangle(x, y, x + 1, y + size)
+push this 0
+push this 1
+push this 0
+push constant 1
+add
+push this 1
+push this 2
+add
+call Screen.drawRectangle 4
+// discard return value of the void function
+pop temp 0
+label LABEL_12
+// return
+push constant 0
+return
+function Square.moveRight 0
+push argument 0
+pop pointer 0
+// if (x + size < 510) { (5 statements...) }
+push this 0
+push this 2
+add
+push constant 510
+lt
+if-goto LABEL_13
+goto LABEL_14
+label LABEL_13
+// Screen.setColor(false)
+push constant 0
+call Screen.setColor 1
+// discard return value of the void function
+pop temp 0
+// Screen.drawRectangle(x, y, x + 1, y + size)
+push this 0
+push this 1
+push this 0
+push constant 1
+add
+push this 1
+push this 2
+add
+call Screen.drawRectangle 4
+// discard return value of the void function
+pop temp 0
+// let x = x + 2
+push this 0
+push constant 2
+add
+pop this 0
+// Screen.setColor(true)
+push constant 1
+neg
+call Screen.setColor 1
+// discard return value of the void function
+pop temp 0
+// Screen.drawRectangle(x + size - 1, y, x + size, y + size)
+push this 0
+push this 2
+add
+push constant 1
+sub
+push this 1
+push this 0
+push this 2
+add
+push this 1
+push this 2
+add
+call Screen.drawRectangle 4
+// discard return value of the void function
+pop temp 0
+label LABEL_14
+// return
+push constant 0
+return

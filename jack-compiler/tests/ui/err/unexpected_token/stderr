@@ -1,0 +1,9 @@
+  x unexpected character ? found
+   ,-[2:1]
+ 2 |     function void main() {
+ 3 |         var some = ?;
+   :                    |
+   :                    `-- unexpected character ? found
+ 4 |         //         ^ unexpected token
+   `----
+

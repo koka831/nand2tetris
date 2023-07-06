@@ -1,0 +1,9 @@
+  ! mismatched types
+   ,-[5:1]
+ 5 |         let foo = Foo.new();
+ 6 |         let str = foo.foo();
+   :         ^^^^^^^^^^|^^^^^^^^^
+   :                   `-- expected `class(String)`, found `int`
+ 7 |         do Output.printString(str);
+   `----
+

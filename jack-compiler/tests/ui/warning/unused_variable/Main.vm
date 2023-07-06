@@ -1,0 +1,21 @@
+function Main.main 0
+// let a = 10
+push constant 10
+pop this 0
+// let c = c
+push constant 1
+call String.new 1
+push constant 99
+call String.appendChar 2
+pop this 2
+// let d = c
+push this 2
+pop this 3
+// Output.printInt(a)
+push this 0
+call Output.printInt 1
+// discard return value of the void function
+pop temp 0
+// let foo = Foo.new()
+call Foo.new 0
+pop this 5

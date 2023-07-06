@@ -1,0 +1,12 @@
+class Foo {
+    field String s;
+
+    constructor Foo new(String As) {
+        let s = As;
+        return this;
+    }
+
+    method String foo() {
+        return s;
+    }
+}

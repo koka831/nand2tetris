@@ -1,0 +1,130 @@
+function Main.main 1
+// Main.fillMemory(8001, 16, -1)
+push constant 8001
+push constant 16
+push constant 1
+neg
+call Main.fillMemory 3
+// discard return value of the void function
+pop temp 0
+// let value = Memory.peek(8000)
+push constant 8000
+call Memory.peek 1
+pop local 0
+// Main.convert(value)
+push local 0
+call Main.convert 1
+// discard return value of the void function
+pop temp 0
+// return
+push constant 0
+return
+function Main.convert 3
+// let loop = true
+push constant 1
+neg
+pop local 2
+// while (loop) { (3 statements...) }
+label LABEL_1
+push local 2
+not
+if-goto LABEL_2
+// let position = position + 1
+push local 1
+push constant 1
+add
+pop local 1
+// let mask = Main.nextMask(mask)
+push local 0
+call Main.nextMask 1
+pop local 0
+// if (~position > 16) { (1 statements...) } else { (1 statements...) }
+push local 1
+push constant 16
+gt
+not
+if-goto LABEL_3
+// let loop = false
+push constant 0
+pop local 2
+goto LABEL_4
+label LABEL_3
+// if (~value & mask = 0) { (1 statements...) } else { (1 statements...) }
+push argument 0
+push local 0
+and
+push constant 0
+eq
+not
+if-goto LABEL_5
+// Memory.poke(8000 + position, 0)
+push constant 8000
+push local 1
+add
+push constant 0
+call Memory.poke 2
+// discard return value of the void function
+pop temp 0
+goto LABEL_6
+label LABEL_5
+// Memory.poke(8000 + position, 1)
+push constant 8000
+push local 1
+add
+push constant 1
+call Memory.poke 2
+// discard return value of the void function
+pop temp 0
+label LABEL_6
+label LABEL_4
+goto LABEL_1
+label LABEL_2
+// return
+push constant 0
+return
+function Main.nextMask 0
+// if (mask = 0) { (1 statements...) } else { (1 statements...) }
+push argument 0
+push constant 0
+eq
+if-goto LABEL_7
+// return mask * 2
+push argument 0
+push constant 2
+call Math.multiply 2
+return
+goto LABEL_8
+label LABEL_7
+// return 1
+push constant 1
+return
+label LABEL_8
+function Main.fillMemory 0
+// while (length > 0) { (3 statements...) }
+label LABEL_9
+push argument 1
+push constant 0
+gt
+not
+if-goto LABEL_10
+// Memory.poke(startAddress, value)
+push argument 0
+push argument 2
+call Memory.poke 2
+// discard return value of the void function
+pop temp 0
+// let length = length - 1
+push argument 1
+push constant 1
+sub
+pop argument 1
+// let startAddress = startAddress + 1
+push argument 0
+push constant 1
+add
+pop argument 0
+goto LABEL_9
+label LABEL_10
+// return
+push constant 0
+return

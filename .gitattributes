@@ -1,0 +1,4 @@
+# ignore testcases & artifacts
+*.asm   linguist-vendored
+*.vm    linguist-vendored
+*.jack  linguist-vendored

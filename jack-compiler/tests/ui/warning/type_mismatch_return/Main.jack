@@ -1,0 +1,22 @@
+class Test {
+    function int foo() {
+        return "string";
+    }
+
+    // single character can be treated as char and String
+    function char s1() {
+        return "c";
+    }
+
+    function String s2() {
+        return "c";
+    }
+
+    function char s3() {
+        return "this is not char";
+    }
+
+    function String s4() {
+        return "this is valid";
+    }
+}

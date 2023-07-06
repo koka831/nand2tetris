@@ -1,0 +1,9 @@
+  x let is a reserved keyword
+   ,-[1:1]
+ 1 | class let {}
+   :       ^|^
+   :        `-- let is a reserved keyword
+ 2 | //    ^^^reserved keyword
+   `----
+  help: you cannot use the keyword `let` for a class name
+

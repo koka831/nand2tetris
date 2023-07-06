@@ -1,0 +1,6 @@
+class Foo {
+    constructor Foo new() {
+        let x = 1;
+        //  ^ assignment to an undefined variable
+    }
+}

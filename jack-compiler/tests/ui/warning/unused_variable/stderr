@@ -1,0 +1,36 @@
+  ! unused variable `e` found
+   ,-[2:1]
+ 2 |     field int a, b;
+ 3 |     field char c, d, e;
+   :                      |
+   :                      `-- variable `e` is defined here
+ 4 |     field Foo foo;
+   `----
+
+  ! unused variable `foo` found
+   ,-[3:1]
+ 3 |     field char c, d, e;
+ 4 |     field Foo foo;
+   :               ^|^
+   :                `-- variable `foo` is defined here
+ 5 | 
+   `----
+
+  ! unused variable `d` found
+   ,-[2:1]
+ 2 |     field int a, b;
+ 3 |     field char c, d, e;
+   :                   |
+   :                   `-- variable `d` is defined here
+ 4 |     field Foo foo;
+   `----
+
+  ! unused variable `b` found
+   ,-[1:1]
+ 1 | class Main {
+ 2 |     field int a, b;
+   :                  |
+   :                  `-- variable `b` is defined here
+ 3 |     field char c, d, e;
+   `----
+

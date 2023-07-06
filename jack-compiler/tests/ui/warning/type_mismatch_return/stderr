@@ -1,0 +1,27 @@
+  ! mismatched types
+   ,-[2:1]
+ 2 |     function int foo() {
+ 3 |         return "string";
+   :                ^^^^|^^^
+   :                    `-- expected `int`, found `class(String)`
+ 4 |     }
+   `----
+
+  ! mismatched types
+    ,-[11:1]
+ 11 |     function String s2() {
+ 12 |         return "c";
+    :                ^|^
+    :                 `-- expected `class(String)`, found `char`
+ 13 |     }
+    `----
+
+  ! mismatched types
+    ,-[15:1]
+ 15 |     function char s3() {
+ 16 |         return "this is not char";
+    :                ^^^^^^^^^|^^^^^^^^
+    :                         `-- expected `char`, found `class(String)`
+ 17 |     }
+    `----
+

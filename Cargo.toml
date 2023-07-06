@@ -1,0 +1,21 @@
+[package]
+name = "hack"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+debug = true
+
+[workspace]
+members = [
+    ".",
+    "hack-asm",
+    "hack-vm",
+    "jack-ast",
+    "jack-compiler"
+]
+
+[workspace.dependencies]
+anyhow = "1.0.70"
+rustc-hash = "1.1.0"
+thiserror = "1.0.40"

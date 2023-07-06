@@ -1,0 +1,11 @@
+/target
+*.log
+coverage
+
+# official toolchains
+/nand2tetris
+/tools
+/OS
+
+# artifact by build.sh
+/runtime

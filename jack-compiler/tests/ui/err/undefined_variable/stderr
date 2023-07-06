@@ -1,0 +1,9 @@
+  x undefined variable `x` found
+   ,-[2:1]
+ 2 |     constructor Foo new() {
+ 3 |         let x = 1;
+   :             |
+   :             `-- undefined variable `x` found
+ 4 |         //  ^ assignment to an undefined variable
+   `----
+

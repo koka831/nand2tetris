@@ -1,0 +1,9 @@
+class Main {
+    function void main() {
+        var Foo foo;
+        var String str;
+        let foo = Foo.new();
+        let str = foo.foo();
+        do Output.printString(str);
+    }
+}

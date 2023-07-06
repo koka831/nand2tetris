@@ -1,0 +1,16 @@
+class Main {
+    field int a, b;
+    field char c, d, e;
+    field Foo foo;
+
+    function void main() {
+        let a = 10;
+        let c = "c";
+        // c is used here
+        let d = c;
+        // a is used
+        do Output.printInt(a);
+
+        let foo = Foo.new();
+    }
+}

@@ -1,0 +1,197 @@
+function SquareGame.new 0
+push constant 2
+call Memory.alloc 1
+pop pointer 0
+// let square = square
+push this 0
+pop this 0
+// let direction = direction
+push this 1
+pop this 1
+// return square
+push this 0
+return
+function SquareGame.dispose 0
+push argument 0
+pop pointer 0
+// square.dispose()
+push this 0
+call Square.dispose 1
+// discard return value of the void function
+pop temp 0
+// Memory.deAlloc(square)
+push this 0
+call Memory.deAlloc 1
+// discard return value of the void function
+pop temp 0
+// return
+push constant 0
+return
+function SquareGame.moveSquare 0
+push argument 0
+pop pointer 0
+// if (direction) { (1 statements...) }
+push this 1
+if-goto LABEL_15
+goto LABEL_16
+label LABEL_15
+// square.moveUp()
+push this 0
+call Square.moveUp 1
+// discard return value of the void function
+pop temp 0
+label LABEL_16
+// if (direction) { (1 statements...) }
+push this 1
+if-goto LABEL_17
+goto LABEL_18
+label LABEL_17
+// square.moveDown()
+push this 0
+call Square.moveDown 1
+// discard return value of the void function
+pop temp 0
+label LABEL_18
+// if (direction) { (1 statements...) }
+push this 1
+if-goto LABEL_19
+goto LABEL_20
+label LABEL_19
+// square.moveLeft()
+push this 0
+call Square.moveLeft 1
+// discard return value of the void function
+pop temp 0
+label LABEL_20
+// if (direction) { (1 statements...) }
+push this 1
+if-goto LABEL_21
+goto LABEL_22
+label LABEL_21
+// square.moveRight()
+push this 0
+call Square.moveRight 1
+// discard return value of the void function
+pop temp 0
+label LABEL_22
+// Sys.wait(direction)
+push this 1
+call Sys.wait 1
+// discard return value of the void function
+pop temp 0
+// return
+push constant 0
+return
+function SquareGame.run 2
+push argument 0
+pop pointer 0
+// let exit = key
+push local 0
+pop local 1
+// while (exit) { (9 statements...) }
+label LABEL_23
+push local 1
+not
+if-goto LABEL_24
+// while (key) { (2 statements...) }
+label LABEL_25
+push local 0
+not
+if-goto LABEL_26
+// let key = key
+push local 0
+pop local 0
+// moveSquare()
+push pointer 0
+call SquareGame.moveSquare 1
+// discard return value of the void function
+pop temp 0
+goto LABEL_25
+label LABEL_26
+// if (key) { (1 statements...) }
+push local 0
+if-goto LABEL_27
+goto LABEL_28
+label LABEL_27
+// let exit = exit
+push local 1
+pop local 1
+label LABEL_28
+// if (key) { (1 statements...) }
+push local 0
+if-goto LABEL_29
+goto LABEL_30
+label LABEL_29
+// square.decSize()
+push this 0
+call Square.decSize 1
+// discard return value of the void function
+pop temp 0
+label LABEL_30
+// if (key) { (1 statements...) }
+push local 0
+if-goto LABEL_31
+goto LABEL_32
+label LABEL_31
+// square.incSize()
+push this 0
+call Square.incSize 1
+// discard return value of the void function
+pop temp 0
+label LABEL_32
+// if (key) { (1 statements...) }
+push local 0
+if-goto LABEL_33
+goto LABEL_34
+label LABEL_33
+// let direction = exit
+push local 1
+pop this 1
+label LABEL_34
+// if (key) { (1 statements...) }
+push local 0
+if-goto LABEL_35
+goto LABEL_36
+label LABEL_35
+// let direction = key
+push local 0
+pop this 1
+label LABEL_36
+// if (key) { (1 statements...) }
+push local 0
+if-goto LABEL_37
+goto LABEL_38
+label LABEL_37
+// let direction = square
+push this 0
+pop this 1
+label LABEL_38
+// if (key) { (1 statements...) }
+push local 0
+if-goto LABEL_39
+goto LABEL_40
+label LABEL_39
+// let direction = direction
+push this 1
+pop this 1
+label LABEL_40
+// while (key) { (2 statements...) }
+label LABEL_41
+push local 0
+not
+if-goto LABEL_42
+// let key = key
+push local 0
+pop local 0
+// moveSquare()
+push pointer 0
+call SquareGame.moveSquare 1
+// discard return value of the void function
+pop temp 0
+goto LABEL_41
+label LABEL_42
+goto LABEL_23
+label LABEL_24
+// return
+push constant 0
+return
