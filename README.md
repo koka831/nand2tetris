@@ -1,5 +1,5 @@
 # NAND2Tetris
-Implementation of [NAND2Tetris](https://www.nand2tetris.org/) with some additional features.
+Implementation of [NAND2Tetris](https://www.nand2tetris.org/) with some additional features (linter, diagnostics).
 ## Setup
 
 ```sh
@@ -21,3 +21,11 @@ $ cargo test --workspace
 # generate `runtime` directory
 $ ./build.sh jack-compiler/tests/fixtures/{Project}
 ```
+
+## Diagnostics
+
+More examples found in [uitest](./jack-compiler/tests/ui).
+
+<p align="center">
+    <img src="./assets/diagnostic.png">
+</p>
